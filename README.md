@@ -38,14 +38,17 @@ These lenses are synthesised into a systems-based governance framework linking t
 
 ## Repository structure
 
-```
-├── analysis.py          Main analysis script (this is the file to run)
-├── requirements.txt     Python package dependencies
-├── data/                Place your input files here
-│   ├── Merged_Tagged_AIUrbanism.xlsx
-│   ├── Hybrid_Conceptual_Lens_Weighted_Matrix.xlsx
-│   └── Hybrid_Conceptual_Lens_Weighted_Matrix_trend_contributing_Analysis.xlsx
-└── output/              All figures and result files are written here (auto-created)
+```text
+.
+├── Cognitive Analysis of AI Urbanism/
+│   ├── data/                      # Input files
+│   │   ├── Merged_Tagged_AIUrbanism.xlsx
+│   │   ├── Hybrid_Conceptual_Lens_Weighted_Matrix.xlsx
+│   │   └── Hybrid_Conceptual_Lens_Weighted_Matrix_trend_contributing_Analysis.xlsx
+│   ├── output/                    # Generated figures and results (auto-created)
+│   ├── analysis.py                # Main script for the analysis
+│   └── requirements.txt           # Required Python packages
+
 ```
 
 ---
