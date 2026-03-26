@@ -1,3 +1,9 @@
+[![GitHub Badge](https://img.shields.io/github/followers/desmond-lartey?style=social)](https://github.com/desmond-lartey)
+[![Publications Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=NJuroh8AAAAJ&hl=en)
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-blue)](https://www.linkedin.com/in/desmond-lartey/)
+[![Twitter Follow](https://img.shields.io/twitter/follow/Desmondlartey17?style=social)](https://x.com/Desmondlartey17)
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Mapping-literature-discourse)
+
 # Governing with Artificial Intelligence
 ### Mapping the Knowledge Systems Shaping Urban Intelligence
 
