@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite both the software and the paper."
+title: "Mapping literature discourse: analysis code for Governing with Artificial Intelligence"
+abstract: >-
+  Reproducible analysis pipeline for the cognitive mapping of AI urbanism:
+  corpus assembly from RIS exports, hybrid semantic classification, ordination
+  (PCA / NMDS / GNMDS), PERMANOVA, and the paper's Figures 2-6.
+authors:
+  - family-names: Lartey
+    given-names: Desmond
+    email: larteydesmond3@gmail.com
+    affiliation: "International School for Social and Business Studies, Celje, Slovenia"
+  - family-names: Law
+    given-names: Kris M. Y.
+    affiliation: "Deakin University, Australia"
+repository-code: "https://github.com/desmond-lartey/Mapping-literature-discourse"
+license: MIT
+keywords:
+  - AI urbanism
+  - urban governance
+  - algorithmic decision-making
+  - socio-technical systems
+  - reproducible research
+preferred-citation:
+  type: article
+  title: "Governing with artificial intelligence: Mapping the knowledge systems shaping urban intelligence"
+  authors:
+    - family-names: Lartey
+      given-names: Desmond
+    - family-names: Law
+      given-names: Kris M. Y.
+  journal: "Technology in Society"
+  volume: 86
+  start: 103321
+  year: 2026
+  doi: "10.1016/j.techsoc.2026.103321"

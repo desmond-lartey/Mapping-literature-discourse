@@ -1,205 +1,187 @@
 [![GitHub Badge](https://img.shields.io/github/followers/desmond-lartey?style=social)](https://github.com/desmond-lartey)
 [![Publications Badge](https://img.shields.io/badge/Google-Scholar-lightgrey)](https://scholar.google.com/citations?user=NJuroh8AAAAJ&hl=en)
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-blue)](https://www.linkedin.com/in/desmond-lartey/)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Desmondlartey17?style=social)](https://x.com/Desmondlartey17)
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Mapping-literature-discourse)
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.techsoc.2026.103321-blue)](https://doi.org/10.1016/j.techsoc.2026.103321)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 # Governing with Artificial Intelligence
 ### Mapping the Knowledge Systems Shaping Urban Intelligence
 
-**Desmond Lartey · Kris M.Y. Law**  
-*Technology in Society* 86 (2026) 103321  
+**Desmond Lartey · Kris M.Y. Law**
+*Technology in Society* **86** (2026) 103321
 DOI: [10.1016/j.techsoc.2026.103321](https://doi.org/10.1016/j.techsoc.2026.103321)
 
 ---
 
-## What this repository contains
+## What this repository is
 
-This repository holds the analysis code used to produce all quantitative results and figures in the paper. The study maps the cognitive structure of AI urbanism by applying natural language processing, dimensionality reduction, and network visualisation to a corpus of 5,634 scholarly articles on AI in urban governance.
+The analysis pipeline behind the paper, written so that **you can run it on your own
+literature corpus**.
 
-Running the script reproduces:
+The study maps the cognitive structure of AI urbanism by classifying scholarly
+literature across 12 conceptual categories, reducing them to 3 knowledge lenses, and
+tracing how those lenses interact across 12 urban governance subsystems. The method is
+general: it works on any body of literature you can export from Scopus, ScienceDirect
+or a comparable database.
 
-- Semantic classification of articles across 12 conceptual categories and 3 knowledge lenses
-- A weighted lens matrix and temporal trend dataset
-- A stratified validation sample for manual coding
-- Figures 2 through 6 from the paper
+Two notebooks, run in order:
 
----
-
-## Background
-
-Cities are increasingly governed through AI systems: predictive models, digital twins, welfare allocation algorithms, and autonomous infrastructure. This study treats that discourse as a structured knowledge system and asks what conceptual logics are embedded in it.
-
-The analysis identifies three foundational lenses that organise the literature:
-
-| Lens | What it captures |
-|------|-----------------|
-| Key Stakeholders and Entities | Technologies, platforms, institutions, and infrastructure enabling AI in cities |
-| Models of Interaction | Feedback dynamics, decision-making, human-machine co-agency |
-| External Influencing Factors | Governance, ethics, regulation, cultural context, sustainability |
-
-These lenses are synthesised into a systems-based governance framework linking them to 12 urban subsystems (e.g. platform governance, ethical standards, public legitimacy).
+| Notebook | Takes | Produces |
+|---|---|---|
+| `01_corpus_assembly.ipynb` | your `.ris` exports | `data/corpus.csv` |
+| `02_cognitive_analysis.ipynb` | `data/corpus.csv` | classified corpus, matrices, statistics, Figures 2–6 |
 
 ---
 
-## Repository structure
-
-```text
-.
-├── Cognitive Analysis of AI Urbanism/
-│   ├── data/                      # Input files
-│   │   ├── Merged_Tagged_AIUrbanism.xlsx
-│   │   ├── Hybrid_Conceptual_Lens_Weighted_Matrix.xlsx
-│   │   └── Hybrid_Conceptual_Lens_Weighted_Matrix_trend_contributing_Analysis.xlsx
-│   ├── output/                    # Generated figures and results (auto-created)
-│   ├── analysis.py                # Main script for the analysis
-│   └── requirements.txt           # Required Python packages
-
-```
-
----
-
-## Input files
-
-| File | Description |
-|------|-------------|
-| `Merged_Tagged_AIUrbanism.xlsx` | Master article database. Each row is one article with columns: Title, Abstract, Keyword, Year, SearchIndicator, ConceptualLens |
-| `Hybrid_Conceptual_Lens_Weighted_Matrix.xlsx` | Lens weight scores per search indicator (rows = indicators, columns = lenses) |
-| `Hybrid_Conceptual_Lens_Weighted_Matrix_trend_contributing_Analysis.xlsx` | Yearly lens contribution totals (rows = years, columns = lenses) |
-
-Place all three files in the `data/` folder before running.
-
----
-
-## Output files
-
-| File | Corresponds to |
-|------|---------------|
-| `Tagged_AIUrbanism.xlsx` | Master database with automated lens assignments added |
-| `Weighted_Matrix.xlsx` | Pivot of article counts by indicator and lens |
-| `Trend_Matrix.xlsx` | Article counts aggregated by year and lens |
-| `Validation_Sample.xlsx` | Stratified 10% sample for manual inter-rater coding |
-| `figure2_indicator_trends.png` | Figure 2 — Trends and growth dynamics of search indicators |
-| `figure3_heatmap_network.png` | Figure 3 — Semantic mapping of lenses |
-| `figure4_temporal_lowess.png` | Figure 4 — LOWESS-smoothed lens trajectories |
-| `figure5_ordination.png` | Figure 5 — PCA, NMDS, and GNMDS ordination |
-| `figure6_governance_framework.png` | Figure 6 — Systems-based governance framework |
-
----
-
-## How to run
-
-### 1. Clone the repository
+## Quick start
 
 ```bash
 git clone https://github.com/desmond-lartey/Mapping-literature-discourse.git
 cd Mapping-literature-discourse
+pip install -r requirements.txt
+jupyter lab notebooks/02_cognitive_analysis.ipynb
 ```
 
-### 2. Install dependencies
+Run all cells. It works immediately with no data files and no model download: by
+default it generates a small synthetic corpus so you can see the whole pipeline
+execute and inspect what each stage produces before committing your own data to it.
+Figures produced this way are stamped **DEMO DATA** so they are never mistaken for
+results.
 
-Python 3.9 or later is recommended.
+When you are ready to use your own corpus:
+
+1. Put your `.ris` exports in `data/raw_ris/` and run `01_corpus_assembly.ipynb`
+   (or write `data/corpus.csv` yourself — the schema is in [`data/README.md`](data/README.md)).
+2. In `02_cognitive_analysis.ipynb`, Stage 0: set `CONFIG["data_mode"] = "real"`.
+3. Run all cells.
+
+---
+
+## Bring your own data
+
+**The corpus used in the published paper is not distributed here.** It is our own
+collected dataset. This repository provides the method, not the material.
+
+What you need is a `corpus.csv` with one row per article and these columns:
+
+| Column | Required | Type | Notes |
+|---|---|---|---|
+| `Title` | yes | text | |
+| `Abstract` | yes | text | may be blank for some rows |
+| `Keyword` | yes | text | semicolon separated |
+| `Year` | yes | integer | 1900–2100 |
+| `SearchIndicator` | yes | text | one of the 12 categories below |
+| `DOI` | no | text | bare identifier |
+| `Authors`, `Journal`, `SourceFile` | no | text | carried through if present |
+
+The 12 categories: `Action`, `Agency`, `Culture`, `Data`, `Governance`, `Materiality`,
+`Personality`, `Security`, `Space`, `Sustainability`, `Technology`, `Time`.
+
+Notebook 01 builds this for you from RIS exports. If you already have your literature
+in a spreadsheet, rename the columns to match and drop it in as
+`data/corpus.csv` — Stage 2 validates the file and tells you exactly what is wrong
+rather than failing several stages later with an unrelated error.
+
+Sample `.ris` files are included in `data/raw_ris/` so you can watch the parser and
+screening funnel work. They are format examples on unrelated topics, not the study
+corpus.
+
+### Adapting the framework
+
+The 12 categories and 3 lenses are defined in **Stage 1** of notebook 02, in plain
+dictionaries. If your field organises differently, edit them there and everything
+downstream — matrices, ordination, statistics, all five figures — follows
+automatically. Nothing is hard-coded further down.
+
+---
+
+## The analysis, stage by stage
+
+Notebook 02 runs in ten numbered stages. Each states what it does, prints what it
+produced so you can check it before moving on, and saves a checkpoint to
+`outputs/checkpoints/`.
+
+| Stage | Does | Paper |
+|---|---|---|
+| 0 | Setup, seeds, one `CONFIG` block controlling every choice | — |
+| 1 | The 12 categories, 3 lenses, published reference values | Table 2 |
+| 2 | Load and validate the corpus | §3.1 |
+| 3 | Semantic scoring against the lens descriptions | §3.1.2 |
+| 4 | Ensemble lens assignment, plus a sensitivity grid | §3.1.3 |
+| 5 | Weighted matrix and temporal trend matrix | §3.2.1 |
+| 6 | Validation sample, Cohen's κ with a bootstrap CI | §3.1.3 |
+| 7 | PCA, NMDS, GNMDS, Kruskal stress | §3.2.2 |
+| 8 | PERMANOVA at indicator and article level | §3.2.2 |
+| 9 | Figures 2–6 | §4 |
+| 10 | Reproducibility manifest with output checksums | — |
+
+Because of the checkpoints you do not have to run top to bottom. Run Stages 0–1, which
+are cheap, then jump to whichever stage you want and run its resume cell first.
+
+### Outputs
+
+```
+outputs/
+├── figures/        figure2 ... figure6, PNG at the DPI set in CONFIG
+├── tables/         validation coder workbook
+├── checkpoints/    every stage result, as CSV or JSON
+└── reproducibility_report.json
+```
+
+The manifest records the configuration, package versions, platform, every headline
+statistic, and a SHA-256 for each output file, so two runs can be compared directly.
+
+---
+
+## Notes on the method
+
+A few choices in the code are worth knowing about before you adapt it.
+
+**The weighted matrix is a semantic mass, not an article count.** Because each
+category maps to exactly one lens a priori, counting articles per category per lens
+gives a diagonal matrix, and ordination on a diagonal matrix simply recovers the
+lookup table. The matrix is therefore built from the average share of similarity each
+category's articles place on each lens. Stage 5 prints the count pivot alongside it so
+the difference is visible.
+
+**The keyword and semantic signals are separately weighted.** The ensemble scores each
+lens as `keyword_weight · 1{category → lens} + semantic_weight · share[lens]`. With
+`keyword_weight ≥ 1` the assignment is effectively a lookup driven by
+`SearchIndicator`; set it to `0` for a purely semantic assignment. Stage 4 runs both
+across a grid so you can see how far the two agree on your data.
+
+**PERMANOVA is reported at two units.** Twelve categories in three groups has little
+statistical power and returns F values around 1–3 even when the grouping is sound;
+the article-level test over thousands of records returns F in the tens or hundreds.
+Stage 8 runs both. Report n, unit and distance measure alongside any F you quote.
+
+**Two dependencies are optional.** `sentence-transformers` is the paper's semantic
+backend and needs a ~90 MB download; without it the notebook uses TF-IDF cosine, which
+is offline and deterministic but an approximation. `statsmodels` provides LOWESS for
+Figure 4; without it a local linear fallback is used. Both fall back silently and
+print which path they took.
+
+---
+
+## Requirements
+
+Python 3.9 or later.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Add your data
-
-Copy the three input files into the `data/` folder.
-
-### 4. Run the analysis
-
-```bash
-python analysis.py
-```
-
-The script works through the following steps in sequence:
-
-1. Assigns each article a conceptual lens using a hybrid approach (keyword matching + sentence transformer)
-2. Builds the weighted lens matrix
-3. Builds the yearly trend matrix
-4. Creates a validation sample for manual coding
-5. Generates all figures
-
-Progress messages are printed at each step. The full pipeline takes a few minutes on a standard laptop, mostly due to the sentence transformer encoding step.
-
----
-
-## Running individual steps
-
-Each step is a standalone function. You can import and call them individually in a notebook or script:
-
-```python
-from analysis import (
-    tag_articles_with_lens,
-    build_weighted_matrix,
-    figure4_temporal_evolution,
-    figure6_governance_network,
-)
-
-# Run only the temporal figure using the built-in data
-figure4_temporal_evolution()
-
-# Run only the governance network figure
-figure6_governance_network()
-
-# Tag your own article database
-tag_articles_with_lens("data/MyArticles.xlsx", "output/Tagged.xlsx")
-```
-
-Figures 3, 4, and 6 use data tables embedded directly in the script (matching the paper values), so they run without any input files. Figures 2 and 5 require the input files.
-
----
-
-## Validation
-
-The script generates a `Validation_Sample.xlsx` file with a stratified 10% sample of articles (roughly 563 rows). A human coder fills in the `Manual_Lens` column using the same three lens options. To compute agreement statistics once coding is complete:
-
-```python
-from analysis import compute_validation_scores
-compute_validation_scores("output/Validation_Sample.xlsx")
-```
-
-This prints exact agreement, Cohen's kappa, a classification report, and a confusion matrix. The paper reports 95.74% exact agreement and kappa = 0.933 on this validation subset.
-
----
-
-## Classification approach
-
-Articles are classified in two stages:
-
-**Stage 1 — Keyword matching.** Each article already carries a `SearchIndicator` column (Technology, Governance, Agency, etc.) from the original search strategy. A fixed lookup table maps each indicator to its primary lens (Table 2 in the paper).
-
-**Stage 2 — Semantic similarity.** The article text (title + abstract + keywords) is encoded using the `all-MiniLM-L6-v2` sentence transformer. Cosine similarity is computed against short natural-language descriptions of each lens. Articles with no keyword match, or with a match below the 0.45 similarity threshold, fall back to the highest-scoring semantic match.
-
-The two signals are combined in a simple ensemble: the keyword-based assignment wins when available; the semantic signal fills gaps.
-
----
-
-## Ordination methods
-
-The script implements three ordination methods to validate the lens structure:
-
-| Method | Purpose |
-|--------|---------|
-| PCA | Projects temporal lens trajectories into a reduced two-dimensional space to reveal directional change over time |
-| NMDS | Non-metric multidimensional scaling positions each search indicator in semantic space according to its lens weight profile |
-| GNMDS | Metric MDS provides an observer-independent baseline for comparing indicator relationships |
-
-Statistical validation (PERMANOVA, F > 25, p < 0.001) confirmed that between-lens variance significantly exceeds within-lens variance, supporting the three-lens structure.
+Everything runs on CPU. No GPU is needed at any stage.
 
 ---
 
 ## Citation
 
-If you use this code in your own work, please cite the paper:
-
 ```bibtex
 @article{lartey2026governing,
-  title   = {Governing with artificial intelligence: Mapping the knowledge systems
-             shaping urban intelligence},
-  author  = {Lartey, Desmond and Law, Kris M.Y.},
+  title   = {Governing with artificial intelligence: Mapping the knowledge
+             systems shaping urban intelligence},
+  author  = {Lartey, Desmond and Law, Kris M. Y.},
   journal = {Technology in Society},
   volume  = {86},
   pages   = {103321},
@@ -208,8 +190,10 @@ If you use this code in your own work, please cite the paper:
 }
 ```
 
----
-
 ## Contact
 
-Questions about the code or data can be directed to **Desmond Lartey** at larteydesmond3@gmail.com.
+**Desmond Lartey** — larteydesmond3@gmail.com
+
+## License
+
+MIT. See [LICENSE](LICENSE).

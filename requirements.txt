@@ -1,11 +1,37 @@
-pandas>=1.5
-numpy>=1.23
+# Governing with Artificial Intelligence - Lartey & Law (2026)
+# Technology in Society 86, 103321
+#
+#   pip install -r requirements.txt
+#
+# Lower bounds are the oldest versions the notebooks were checked against.
+# Upper bounds guard against known breaking changes, not hypothetical ones.
+
+# --- core, required ---
+pandas>=1.5,<3.1
+numpy>=1.23,<3.0
+scipy>=1.9
 matplotlib>=3.6
 seaborn>=0.12
-scikit-learn>=1.1
-scipy>=1.9
-statsmodels>=0.13
 networkx>=2.8
-sentence-transformers>=2.2
+
+# scikit-learn is renaming MDS's `dissimilarity`/`metric` arguments and changing the
+# default `init` in 1.10. Notebook 02 inspects the signature and adapts, so both sides
+# of that change work. The upper bound is deliberate: revisit it rather than let a
+# silent rename alter your ordination.
+scikit-learn>=1.1,<1.11
+
+# Reading and writing .xlsx (corpus input, validation workbook)
 openpyxl>=3.0
-scikit-bio>=0.5
+
+# --- optional ---
+# LOWESS smoothing in Figure 4. Without it the notebook uses a local linear
+# fallback, which is close but not identical.
+statsmodels>=0.13
+
+# The paper's semantic backend. ~90 MB model download on first use. Without it
+# the notebook falls back to TF-IDF, which is offline and deterministic but is
+# an approximation, not the paper's method. See Stage 3.
+sentence-transformers>=2.2
+
+# PERMANOVA is implemented directly in Stage 8, so no ecology package is needed.
+# Nothing here requires a GPU: sentence-transformers runs fine on CPU.

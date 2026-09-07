@@ -1,0 +1,27 @@
+# Generated outputs - regenerate by running the notebooks
+outputs/
+data/interim/
+data/corpus.csv
+data/*.xlsx
+!data/README.md
+Cognitive Analysis of AI Urbanism/
+
+# Notebook noise. Strip outputs before committing:
+#   jupyter nbconvert --clear-output --inplace notebooks/*.ipynb
+.ipynb_checkpoints/
+
+# Model cache
+.cache/
+**/sentence_transformers/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
