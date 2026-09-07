@@ -51,7 +51,7 @@ results.
 When you are ready to use your own corpus:
 
 1. Put your `.ris` exports in `data/raw_ris/` and run `01_corpus_assembly.ipynb`
-   (or write `data/corpus.csv` yourself — the schema is in [`data/README.md`](data/README.md)).
+   (or write `data/corpus.csv` yourself - the schema is in [`data/README.md`](data/README.md)).
 2. In `02_cognitive_analysis.ipynb`, Stage 0: set `CONFIG["data_mode"] = "real"`.
 3. Run all cells.
 
@@ -79,7 +79,7 @@ The 12 categories: `Action`, `Agency`, `Culture`, `Data`, `Governance`, `Materia
 
 Notebook 01 builds this for you from RIS exports. If you already have your literature
 in a spreadsheet, rename the columns to match and drop it in as
-`data/corpus.csv` — Stage 2 validates the file and tells you exactly what is wrong
+`data/corpus.csv` - Stage 2 validates the file and tells you exactly what is wrong
 rather than failing several stages later with an unrelated error.
 
 Sample `.ris` files are included in `data/raw_ris/` so you can watch the parser and
@@ -90,7 +90,7 @@ corpus.
 
 The 12 categories and 3 lenses are defined in **Stage 1** of notebook 02, in plain
 dictionaries. If your field organises differently, edit them there and everything
-downstream — matrices, ordination, statistics, all five figures — follows
+downstream - matrices, ordination, statistics, all five figures - follows
 automatically. Nothing is hard-coded further down.
 
 ---
@@ -103,7 +103,7 @@ produced so you can check it before moving on, and saves a checkpoint to
 
 | Stage | Does | Paper |
 |---|---|---|
-| 0 | Setup, seeds, one `CONFIG` block controlling every choice | — |
+| 0 | Setup, seeds, one `CONFIG` block controlling every choice | - |
 | 1 | The 12 categories, 3 lenses, published reference values | Table 2 |
 | 2 | Load and validate the corpus | §3.1 |
 | 3 | Semantic scoring against the lens descriptions | §3.1.2 |
@@ -113,7 +113,7 @@ produced so you can check it before moving on, and saves a checkpoint to
 | 7 | PCA, NMDS, GNMDS, Kruskal stress | §3.2.2 |
 | 8 | PERMANOVA at indicator and article level | §3.2.2 |
 | 9 | Figures 2–6 | §4 |
-| 10 | Reproducibility manifest with output checksums | — |
+| 10 | Reproducibility manifest with output checksums | - |
 
 Because of the checkpoints you do not have to run top to bottom. Run Stages 0–1, which
 are cheap, then jump to whichever stage you want and run its resume cell first.
@@ -192,7 +192,7 @@ Everything runs on CPU. No GPU is needed at any stage.
 
 ## Contact
 
-**Desmond Lartey** — larteydesmond3@gmail.com
+**Desmond Lartey** - larteydesmond3@gmail.com
 
 ## License
 

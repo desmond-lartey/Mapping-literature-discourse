@@ -14,7 +14,7 @@ search.
 Put your `.ris` files in `raw_ris/` and run `notebooks/01_corpus_assembly.ipynb`. It
 parses, normalises, deduplicates, tags and screens them, and writes `corpus.csv` here.
 
-Name each export after its search category — `Technology_1.ris`, `Governance_2a.ris` —
+Name each export after its search category - `Technology_1.ris`, `Governance_2a.ris` -
 and Stage A4 reads the category straight off the filename. Otherwise it falls back to
 matching the Table 1 search terms against each record's text, which works but is less
 exact.
@@ -28,7 +28,7 @@ immediately rather than four stages later.
 
 You can also skip both and leave `CONFIG["data_mode"] = "demo"` in the analysis
 notebook, which generates a small synthetic corpus. That is for reading and testing
-the pipeline, not for producing results — figures made this way are stamped
+the pipeline, not for producing results - figures made this way are stamped
 **DEMO DATA**.
 
 ## Schema
@@ -50,7 +50,7 @@ the pipeline, not for producing results — figures made this way are stamped
 The 12 categories: `Action`, `Agency`, `Culture`, `Data`, `Governance`, `Materiality`,
 `Personality`, `Security`, `Space`, `Sustainability`, `Technology`, `Time`.
 
-Using different categories is fine — edit the definitions in Stage 1 of the analysis
+Using different categories is fine - edit the definitions in Stage 1 of the analysis
 notebook and everything downstream adapts.
 
 ## Folder contents
