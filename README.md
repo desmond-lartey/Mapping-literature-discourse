@@ -3,6 +3,7 @@
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-blue)](https://www.linkedin.com/in/desmond-lartey/)
 [![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.techsoc.2026.103321-blue)](https://doi.org/10.1016/j.techsoc.2026.103321)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Mapping-literature-discourse)
 
 # Governing with Artificial Intelligence
 ### Mapping the Knowledge Systems Shaping Urban Intelligence
@@ -11,6 +12,7 @@
 *Technology in Society* **86** (2026) 103321
 DOI: [10.1016/j.techsoc.2026.103321](https://doi.org/10.1016/j.techsoc.2026.103321)
 
+*This work is part of a larger research repository:* [[Knowledge-Management-Informatics](https://github.com/desmond-lartey/Knowledge-Management-Informatics)]
 ---
 
 ## What this repository is
