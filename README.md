@@ -12,7 +12,7 @@
 *Technology in Society* **86** (2026) 103321
 DOI: [10.1016/j.techsoc.2026.103321](https://doi.org/10.1016/j.techsoc.2026.103321)
 
-*This work is part of a larger research repository:* [[Knowledge-Management-Informatics](https://github.com/desmond-lartey/Knowledge-Management-Informatics)]
+This work is part of a larger research repository: [Knowledge-Management-Informatics](https://github.com/desmond-lartey/Knowledge-Management-Informatics)
 ---
 
 ## What this repository is

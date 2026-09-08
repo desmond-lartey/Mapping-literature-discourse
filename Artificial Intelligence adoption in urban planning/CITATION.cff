@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper."
+title: "AI adoption in urban planning governance: systematic review analysis pipeline"
+abstract: >-
+  Reproducible pipeline for a systematic review of AI adoption in urban planning
+  governance: corpus assembly from database exports, bibliometric and trend analysis,
+  offline geographic mapping with full global country coverage, VOSviewer keyword
+  network analysis, and the practical integration matrix.
+authors:
+  - family-names: Lartey
+    given-names: Desmond
+    email: larteydesmond3@gmail.com
+    affiliation: "International School for Social and Business Studies, Celje, Slovenia"
+  - family-names: Law
+    given-names: Kris M. Y.
+    affiliation: "Deakin University, Australia"
+license: MIT
+keywords:
+  - artificial intelligence
+  - urban planning
+  - urban governance
+  - systematic review
+  - bibliometrics
+  - reproducible research
+preferred-citation:
+  type: article
+  title: "Artificial intelligence adoption in urban planning governance: A systematic review of advancements in decision-making, and policy making"
+  authors:
+    - family-names: Lartey
+      given-names: Desmond
+    - family-names: Law
+      given-names: Kris M. Y.
+  journal: "Landscape and Urban Planning"
+  volume: 258
+  start: 105337
+  year: 2025
+  doi: "10.1016/j.landurbplan.2025.105337"

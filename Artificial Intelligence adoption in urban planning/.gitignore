@@ -1,0 +1,27 @@
+# Generated outputs - regenerate by running the notebooks
+outputs/
+data/interim/
+data/corpus.csv
+data/corpus_classified.csv
+data/*.xlsx
+!data/README.md
+!data/reference/
+
+# Your own exports - not published here
+data/raw_ris/*.ris
+data/raw_csv/*.csv
+data/vosviewer/*.json
+!data/raw_ris/.gitkeep
+!data/raw_csv/.gitkeep
+!data/vosviewer/.gitkeep
+
+# Notebook noise. Strip outputs before committing:
+#   jupyter nbconvert --clear-output --inplace notebooks/*.ipynb
+.ipynb_checkpoints/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
