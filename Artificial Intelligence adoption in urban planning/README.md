@@ -181,7 +181,7 @@ Companion paper: [Governing with artificial intelligence: Mapping the knowledge 
 shaping urban intelligence](https://github.com/desmond-lartey/Mapping-literature-discourse),
 *Technology in Society* 86 (2026) 103321.
 
-Part of the PhD thesis repository:
+Part of the larger research repository:
 [Knowledge-Management-Informatics](https://github.com/desmond-lartey/Knowledge-Management-Informatics).
 
 ## Contact
